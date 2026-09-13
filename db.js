@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect("").then(() => console.log("Connected !"));
+
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
@@ -27,10 +27,10 @@ const courseSchema = new Schema({
   imageUrl: String,
   CreatorId: ObjectId,
 });
-const userModel = mongoose.Model("user", userSchema);
-const adminModel = mongoose.Model("admin", adminSchema);
-const purchaseModel = mongoose.Model("purchase", purchaseSchema);
-const courseModel = mongoose.Model("course", courseSchema);
+const userModel = mongoose.model("user", userSchema);
+const adminModel = mongoose.model("admin", adminSchema);
+const purchaseModel = mongoose.model("purchase", purchaseSchema);
+const courseModel = mongoose.model("course", courseSchema);
 module.exports = {
   userModel,
   adminModel,
