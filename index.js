@@ -1,6 +1,9 @@
 const express = require("express");
-const user = require("./user");
-const app= express(); 
-const{ userRouter } = require("user")
-
+const { userRouter } = require("/routes/user");
+const { courseRouter } = require("/routes/course");
+const { adminRouter } = require("/routes/admin");
+const app = express();
+app.use("/user", userRouter);
+app.use("/course", courseRouter);
+app.use("/admin",adminRouter);
 app.listen(3000);
