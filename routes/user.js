@@ -21,26 +21,7 @@ userRouter.post("/signup", async function (req, res) {
   }
   const { email, password, firstname, lastname } = result.data;
   const hashedpassword = await bcrypt.hash(password, saltRounds);
-  try {
-    await userModel.create({
-      email,
-      password: hashedpassword,
-      firstname,
-      lastname,
-    });
-    return res.status(201).json({
-      message: "User Created Successfully",
-    });
-  } catch (e) {
-    if (e.code === 11000) {
-      return res.status(409).json({
-        message: "Email already exists",
-      });
-    }
-    return res.status(500).json({
-      message: "Something went wrong",
-    });
-  }
+  
 });
 
 userRouter.post("/signin", function (req, res) {});
